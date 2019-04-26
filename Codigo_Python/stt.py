@@ -58,7 +58,7 @@ elif x==3:
                 jason['text'].append({
                     'texto': text
                     })
-                with open('data.txt', 'w+') as outfile:
+                with open('data.json', 'w+') as outfile:
                     json.dump(jason, outfile)
 
                 with open('data.json') as json_file:
