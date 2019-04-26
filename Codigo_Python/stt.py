@@ -61,7 +61,7 @@ elif x==3:
                 with open('data.txt', 'w+') as outfile:
                     json.dump(jason, outfile)
 
-                with open('data.txt') as json_file:
+                with open('data.json') as json_file:
                     data = json.load(json_file)
                     for p in data['text']:
                         print('texto: ' + p['texto'])
@@ -74,8 +74,3 @@ elif x==3:
 
 
 
-# import pip
-# installed_packages = pip.get_installed_distributions()
-# installed_packages_list = sorted(["%s==%s" % (i.key, i.version)
-#      for i in installed_packages])
-# print(installed_packages_list)
