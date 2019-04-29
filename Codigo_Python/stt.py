@@ -14,9 +14,6 @@ if x==1:
             r.adjust_for_ambient_noise(source, duration=1)
             print("digalo: ")
             audio = r.listen(source,phrase_time_limit=5)
-            #audio = r.record(source)
-
-            #audio = r.listen(source)
 
             try:
                 textt = r.recognize_google(audio,show_all=True)
@@ -53,19 +50,25 @@ elif x==3:
 
             try:
                 text = r.recognize_google(audio)
+                posibilidades = r.recognize_google(audio,show_all=True)
+                posibilidades=posibilidades['alternative']
                 jason = {}
                 jason['text'] = []
-                jason['text'].append({
-                    'texto': text
-                    })
+
+                for x in range(0,4):
+                    try:
+                        jason['text'].append({
+                              str(x): posibilidades[x]['transcript']
+                            })
+                    except:
+                        pass
+
                 with open('data.json', 'w+') as outfile:
                     json.dump(jason, outfile)
 
                 with open('data.json') as json_file:
                     data = json.load(json_file)
-                    for p in data['text']:
-                        print('texto: ' + p['texto'])
-                        print('')
+                    print(data)
             except:
                 print("no entendi...")
 
@@ -74,3 +77,8 @@ elif x==3:
 
 
 
+# import pip
+# installed_packages = pip.get_installed_distributions()
+# installed_packages_list = sorted(["%s==%s" % (i.key, i.version)
+#      for i in installed_packages])
+# print(installed_packages_list)
