@@ -1,0 +1,64 @@
+{
+  "text": "In Antioquia we have as typical handcrafts  the carriel, poncho o ruana antioqueña and the hat",
+  "type": "text",
+  "channelExtensions": {
+    "debugInfo": {
+      "variables": {
+        "profile.updatedOn": "2019-05-20T21:59:14.175Z",
+        "profile.lastName": "Ceballos",
+        "iResult": {
+          "timeStamp": 1558389555331,
+          "intentMatches": {
+            "summary": [
+              {
+                "score": 1,
+                "intent": "AntHands"
+              }
+            ],
+            "detail": {
+              "final_norm": [
+                {
+                  "sentence": [],
+                  "score": 1,
+                  "intent": "AntHands"
+                }
+              ]
+            }
+          },
+          "trainingDataUnit": null,
+          "botName": "Antoniav3",
+          "appId": "3A1B3A74-21F7-4053-8787-3B987C09A8BC",
+          "query": "Which are the typical Antioquia handcrafts",
+          "entityMatches": {}
+        },
+        "system.security.configuredAuthenticationServices": "",
+        "system.config.system.helpState": "",
+        "system.config.system.oauthSuccessPrompt": "Authentication successful! You can return to the conversation.",
+        "system.config.system.intentConfidenceThreshold": 0,
+        "profile.locale": "en_US",
+        "system.config.system.oauthCancelPrompt": "Authentication canceled.",
+        "profile.timezoneOffset": 18000000,
+        "system.config.system.intentConfidenceWinMargin": 0,
+        "system.config.system.errorUnexpectedErrorPrompt": "Oops I'm encountering a spot of trouble. Please try again later...",
+        "system.config.system.startState": "",
+        "system.config.system.errorExpiredSessionPrompt": "Your session has expired.  Please start again.",
+        "profile.firstName": "Christian",
+        "system.config.system.welcomeState": "",
+        "system.config.system.errorMaxStatesExceededPrompt": "Your session appears to be in an infinite loop."
+      },
+      "currentDialogState": "anthand1",
+      "executedStates": [
+        {
+          "stateName": "intent",
+          "botName": "Antoniav3",
+          "botId": "3A1B3A74-21F7-4053-8787-3B987C09A8BC"
+        },
+        {
+          "stateName": "anthand1",
+          "botName": "Antoniav3",
+          "botId": "3A1B3A74-21F7-4053-8787-3B987C09A8BC"
+        }
+      ]
+    }
+  }
+}
