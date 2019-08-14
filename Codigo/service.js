@@ -1,7 +1,5 @@
 const OracleBot = require('@oracle/bots-node-sdk');
 const { WebhookClient, WebhookEvent } = OracleBot.Middleware;
-const path = require('path')
-const { spawn } = require('child_process')
 
 module.exports = (app) => {
   const logger = console;
@@ -13,8 +11,8 @@ module.exports = (app) => {
   // add webhook integration
   const webhook = new WebhookClient({
     channel: {
-      url: 'https://botv2phx1I0044H0105B5bots-mpaasocimt.botmxp.ocp.oraclecloud.com:443/connectors/v1/tenants/idcs-100b89d671b54afca3069fe360e4bad4/listeners/webhook/channels/deff9d29-26cd-428e-b110-9fd0869dca71',
-      secret: 'R2o9cWV7oAyvCrLDbLLatkTsqr05z3BG',
+      url: 'https://botv2phx1I0044H0105B5bots-mpaasocimt.botmxp.ocp.oraclecloud.com:443/connectors/v1/tenants/idcs-100b89d671b54afca3069fe360e4bad4/listeners/webhook/channels/25eb87fc-7945-4d29-9755-0817b16b29ea',
+      secret: 'k1P4Vgj1kdDHataDZpSWA0vwDbElWhXS',
     }
   });
   // Add webhook event handlers (optional)
@@ -24,9 +22,8 @@ module.exports = (app) => {
     .on(WebhookEvent.MESSAGE_RECEIVED, message => {
       // message was received from bot. forward to messaging client.
       logger.info('Message from bot:', message);
-      console.log(MESSAGE_RECEIVED);
+//console.log(MESSAGE_RECEIVED);
       // TODO: implement send to client...
-      logger.info('MessageReceived: ',MESSAGE_RECEIVED);
     });
 
   // Create endpoint for bot webhook channel configurtion (Outgoing URI)
@@ -53,17 +50,16 @@ module.exports = (app) => {
     app.post('/', (req, res) => {
     const response = webhook.receiver();
     res.set('Content-Type', 'application/json');
-
     res.send(response);
-    var resjson = res.req.body;
-    console.log(resjson.messagePayload.text);
-    console.log("Start TTS");
-    var spawn = require("child_process").spawn;
-    // var process = spawn('python3', ['/home/opc/Python/tty.py', resjson.messagePayload.text]);
-    var process = spawn('python3', ['/home/opc/Python/tts.py', resjson.messagePayload.text]);
-    process.stdout.on('data', function(data) { 
-        console.log(data.toString()); 
-    } ) 
-    console.log("End TTS");
+
+fs.readFile('respuesta.json', 'utf8', function readFileCallback(err, data){ 
+    if (err){ 
+     console.log(err); 
+    } else { 
+    obj = JSON.parse(data); //now it an object 
+    obj.table.push({user: 2, text:3}); //add some data 
+    json = JSON.stringify(obj); //convert it back to json 
+    fs.writeFile('respuesta.json', json, 'utf8', callback); // write it back 
+}}); 
   });
 }
