@@ -1,3 +1,6 @@
+const express = require('express')
+const app = express()
+
 const OracleBot = require('@oracle/bots-node-sdk');
 const { WebhookClient, WebhookEvent } = OracleBot.Middleware;
 
